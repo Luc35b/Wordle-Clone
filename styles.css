@@ -1,0 +1,241 @@
+body {
+    font-family: "montserrat",arial,sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0; 
+}
+
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#title {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: .01em;
+}
+
+hr {
+    width: 500px;
+    margin: 10px auto; 
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 20px; 
+}
+
+#board {
+    width: 350px;
+    height: 420px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 180px; 
+}
+
+.tile { 
+    border: 2px solid lightgrey;
+    width: 60px;
+    height: 60px;
+    margin: 2.5px;
+    color: black;
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+    perspective: 1000px;
+}
+
+.tile.filled {
+    border-color: #878A8C;
+}
+
+.tile.pop {
+    animation: pop 0.2s ease;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.95);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.06);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.tile.flip {
+    animation: flip 0.36s forwards;
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: rotateX(90deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes jump {
+    0% { transform: translateY(0); }
+    40% { transform: translateY(-30px); }
+    60% { transform: translateY(10px); }
+    80% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+
+}
+
+.tile.jump {
+    animation: jump 0.5s ease-out;
+}
+
+.locked {
+    pointer-events: none;
+    opacity: 0.5; 
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-4px); }
+    20% { transform: translateX(4px); }
+    30% { transform: translateX(-4px); }
+    40% { transform: translateX(4px); }
+    50% { transform: translateX(-4px); }
+    60% { transform: translateX(4px); }
+    70% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
+    90% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}
+
+.tile.shake {
+    animation: shake 0.5s;
+}
+
+.correct {
+    background-color: #6AAA64;
+    color: white;
+    border-color: #6AAA64;
+}
+
+.present {  
+    background-color: #C9B458;
+    color: white;
+    border-color: #C9B458;
+}
+
+.absent {
+    background-color: #787C7E;
+    color: white;
+    border-color: #787C7E;
+}
+
+#keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px; 
+}
+
+.row {
+    display: flex;
+}
+
+.key {
+    width: 45px;
+    height: 60px;
+    margin: 3px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #D3D6DA;
+    color: #000000;
+    cursor: pointer;
+    border: #D3D6DA;
+    border-radius: 5px;
+}
+
+.key:hover {
+    background-color: #C4CBDD;
+}
+
+.key.correct {
+    background-color: #6AAA64;
+    color: white;
+}
+
+.key.present {
+    background-color: #C9B458;
+    color: white;
+}
+
+.key.absent {
+    background-color: #787C7E;
+    color: white;
+}
+
+
+#backspace {
+    width: 66px;
+}
+
+#enter {
+    width: 66px;
+    font-size: 12px;
+}
+
+#popup {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    border-radius: 3px;
+    padding: 2px 18px;
+    font-size: 13px; 
+    font-weight: bold;
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transition: opacity 2s ease, transform 2s ease;
+    white-space: nowrap;
+}
+
+#popup.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(100px) translateX(-50%);
+}
+
+
+.hidden {
+    display: none;
+}

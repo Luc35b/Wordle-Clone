@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Wordle</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="description" content="Worlde Clone">
+        <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+
+        <link rel="stylesheet" href="styles.css">
+        <!--<script src="wordsList.js"></script> -->
+        <script src="wordle.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <h1 id="title">Wordle</h1>
+            <hr>
+        </header>
+        <div id="content">
+            <div id="board">
+                <!-- <span id="0-0" class="tile">P</span> //repeated for each tile -->
+            </div>
+
+            <!-- Add restart button -->
+            <!-- <button id="restart">Restart</button> -->
+
+            <div id="keyboard">
+                <div class="row">
+                    <button class="key">Q</button>
+                    <button class="key">W</button>
+                    <button class="key">E</button>
+                    <button class="key">R</button>
+                    <button class="key">T</button>
+                    <button class="key">Y</button>
+                    <button class="key">U</button>
+                    <button class="key">I</button>
+                    <button class="key">O</button>
+                    <button class="key">P</button>
+                </div>
+                <div class="row">
+                    <button class="key">A</button>
+                    <button class="key">S</button>
+                    <button class="key">D</button>
+                    <button class="key">F</button>
+                    <button class="key">G</button>
+                    <button class="key">H</button>
+                    <button class="key">J</button>
+                    <button class="key">K</button>
+                    <button class="key">L</button>
+                </div>
+                <div class="row">
+                    <button id="enter" class="key">ENTER<!-- ↵ --></button>
+                    <button class="key">Z</button>
+                    <button class="key">X</button>
+                    <button class="key">C</button>
+                    <button class="key">V</button>
+                    <button class="key">B</button>
+                    <button class="key">N</button>
+                    <button class="key">M</button>
+                    <button id="backspace" class="key"><img src="keyboard-backspace-svgrepo-com.svg" style="width: 23px; height: 58px;"></button>                    
+                </div>
+            </div>
+        </div>
+        <div id="popup" class="hidden">
+            <p id="popup-message"></p>
+        </div>
+    </body>
+
+</html>
